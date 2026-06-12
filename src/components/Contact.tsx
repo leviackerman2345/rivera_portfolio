@@ -61,8 +61,10 @@ export default function Contact() {
 
   // Auto scroll terminal logs to bottom
   useEffect(() => {
-    logEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [terminalLogs]);
+    if (transStatus !== "idle") {
+      logEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [terminalLogs, transStatus]);
 
   // Entrance scroll triggered animations
   useGSAP(

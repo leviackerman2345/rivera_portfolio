@@ -6,11 +6,17 @@ import { useGSAP } from "@gsap/react";
 import { ArrowUpRight, Terminal, Menu, X } from "lucide-react";
 import { heroContent } from "../data/heroContent";
 
-export default function Hero() {
+interface HeroProps {
+  isLoaded: boolean;
+}
+
+export default function Hero({ isLoaded }: HeroProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
+    if (!isLoaded) return;
+
     const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
 
     // 1. Subtle zoom out background image
@@ -65,7 +71,7 @@ export default function Hero() {
       { y: 0, opacity: 1, duration: 1.0, delay: -0.8 }
     );
 
-  }, { scope: containerRef });
+  }, { dependencies: [isLoaded], scope: containerRef });
 
   // Handle Full-Screen Mobile Menu Open/Close Animations
   const handleToggleMenu = (open: boolean) => {
