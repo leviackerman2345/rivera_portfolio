@@ -1,0 +1,221 @@
+/* 
+  Rivera Portfolio Theme - Cyber Neo-Minimalism
+  Aligned with main_instruction.md requirements:
+  - Neo-Minimalist with a "Touch of Developer" (clean lines, code accents, high contrast)
+  - STRICTLY NO GRADIENTS on backgrounds or cards (solid colors only)
+  - Bold, noticeable micro-interactions/hovers
+*/
+
+@theme {
+  /* Brand Theme Colors */
+  --color-bg-base: #050505;       /* Deep matte black background */
+  --color-bg-surface: #0c0c0c;    /* Flat card surface */
+  --color-bg-surface-elevated: #141414; /* Hover surface / elevation */
+
+  /* Developer Green (Matrix/Phosphor/Success) */
+  --color-cyber-green: #004d26;       /* Rich dark green highlight */
+  --color-cyber-green-dim: #053b1b;   /* Muted background green */
+  --color-cyber-green-soft: #a3ffd6;  /* Soft text green */
+
+  /* Developer Red (Alert/Debug/Danger) */
+  --color-cyber-red: #ff3333;         /* Sharp high-contrast red */
+  --color-cyber-red-dim: #4c0d0d;     /* Muted background red */
+  --color-cyber-red-soft: #ffb3b3;    /* Soft text red */
+
+  /* High Contrast Borders */
+  --color-border-sharp: #1c1c1c;      /* Crisp default border */
+  --color-border-active: #333333;     /* Visible highlight border */
+  --color-border-focus: #555555;      /* Active state border */
+
+  /* Font Configuration */
+  --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular;
+}
+
+/* Base resets and defaults override */
+html {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+html::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari and Opera */
+}
+
+body {
+  background-color: var(--color-bg-base);
+  color: #ededed;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari and Opera */
+}
+
+/* Utility to hide scrollbars on specific containers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari and Opera */
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* ==========================================
+   DEVELOPER & NEO-MINIMALIST UTILITY CLASSES
+   ========================================== */
+
+/* Flat Card Container with Crisp Borders and Interactive Hover Actions */
+.neo-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-sharp);
+  transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.neo-card:hover {
+  border-color: var(--color-border-active);
+  transform: translateY(-2px);
+}
+
+/* Green Cyber Border Card */
+.neo-card-green {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-sharp);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.neo-card-green:hover {
+  border-color: var(--color-cyber-green);
+  box-shadow: 0 0 10px rgba(0, 255, 102, 0.15);
+}
+
+/* Red Cyber Border Card */
+.neo-card-red {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-sharp);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.neo-card-red:hover {
+  border-color: var(--color-cyber-red);
+  box-shadow: 0 0 10px rgba(255, 51, 51, 0.15);
+}
+
+/* Custom Interactive Buttons (Solid color transitions on hover, NO gradients) */
+.btn-cyber-green {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-cyber-green);
+  background-color: transparent;
+  border: 1px solid var(--color-cyber-green);
+  cursor: pointer;
+  transition: all 0.2s steps(4);
+}
+
+.btn-cyber-green:hover {
+  background-color: var(--color-cyber-green);
+  color: #000000;
+}
+
+.btn-cyber-green:active {
+  transform: scale(0.98);
+}
+
+.btn-cyber-red {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-cyber-red);
+  background-color: transparent;
+  border: 1px solid var(--color-cyber-red);
+  cursor: pointer;
+  transition: all 0.2s steps(4);
+}
+
+.btn-cyber-red:hover {
+  background-color: var(--color-cyber-red);
+  color: #ffffff;
+}
+
+.btn-cyber-red:active {
+  transform: scale(0.98);
+}
+
+/* Terminal Console Window styling */
+.terminal-window {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-sharp);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.terminal-header {
+  background-color: var(--color-bg-surface-elevated);
+  border-bottom: 1px solid var(--color-border-sharp);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
+
+.terminal-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.terminal-content {
+  padding: 1.25rem;
+  font-family: var(--font-mono);
+  color: #cccccc;
+}
+
+/* Blinking developer text cursor micro-animation */
+.dev-cursor::after {
+  content: "_";
+  color: var(--color-cyber-green);
+  font-weight: bold;
+  animation: dev-blink 1s step-start infinite;
+}
+
+.dev-cursor-red::after {
+  content: "_";
+  color: var(--color-cyber-red);
+  font-weight: bold;
+  animation: dev-blink 1s step-start infinite;
+}
+
+@keyframes dev-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Decorative grid accents to reinforce the "Touch of Developer" */
+.dev-grid-bg {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Sharp focus indicators */
+.focus-ring:focus-visible {
+  outline: 2px solid var(--color-cyber-green);
+  outline-offset: 2px;
+}
