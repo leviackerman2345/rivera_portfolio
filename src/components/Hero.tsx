@@ -92,7 +92,7 @@ export default function Hero({ isLoaded }: HeroProps) {
   return (
     <div 
       ref={containerRef}
-      className="h-screen w-full bg-[#050505] text-white relative overflow-hidden flex flex-col justify-between font-sans selection:bg-[#004d26] selection:text-white cursor-crosshair"
+      className={`h-screen w-full bg-[#050505] text-white relative overflow-hidden flex flex-col justify-between font-sans selection:bg-[#004d26] selection:text-white cursor-crosshair transition-opacity duration-500 ${isLoaded ? "opacity-100" : "opacity-0 pointer-events-none"}`}
     >
       {/* Background Section (Raw Portrait Image with 30% Dark Overlay and responsive centering) */}
       <div className="absolute inset-0 z-0 overflow-hidden">
