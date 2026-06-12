@@ -25,9 +25,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col bg-[#050505] text-neutral-200 selection:bg-[#004d26] selection:text-white">
+      <body 
+        suppressHydrationWarning
+        className="min-h-full flex flex-col bg-[#050505] text-neutral-200 selection:bg-[#004d26] selection:text-white"
+      >
         <main className="flex-grow">{children}</main>
       </body>
     </html>

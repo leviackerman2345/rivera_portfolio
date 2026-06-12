@@ -12,7 +12,7 @@ export const projectsContent: ProjectItem[] = [
     title: "Code Rift: Genesis",
     techStack: ["C#", "Unity", "Aseprite"],
     description: "A coding-based tactical RPG utilizing complex C# logic gates and custom-rendered 16-bit sprite animation sequences. Players solve algorithmic puzzles to compile spells and navigate structural dungeons.",
-    imageUrl: "https://images.unsplash.com/photo-1612287230202-1bf1d85d1bdf?auto=format&fit=crop&w=600&q=80",
+    imageUrl: "/assets/code_rift_genesis.png",
   },
   {
     title: "Sustainable Streets Simulator",
